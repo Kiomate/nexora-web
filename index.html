@@ -1,0 +1,73 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function NexoraWebsite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
+      {/* Header */}
+      <header className="flex justify-between items-center p-6">
+        <h1 className="text-2xl font-bold">Nexora</h1>
+        <nav className="space-x-6">
+          <a href="#services" className="hover:text-blue-400">Servicios</a>
+          <a href="#about" className="hover:text-blue-400">Nosotros</a>
+          <a href="#contact" className="hover:text-blue-400">Contacto</a>
+        </nav>
+      </header>
+
+      {/* Hero */}
+      <section className="text-center py-20 px-6">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="text-5xl font-bold mb-6"
+        >
+          Innovación Digital con Nexora
+        </motion.h2>
+        <p className="text-gray-300 max-w-xl mx-auto mb-8">
+          Creamos soluciones de software modernas, eficientes y escalables para llevar tu negocio al siguiente nivel.
+        </p>
+        <Button className="text-lg px-6 py-3">Empezar</Button>
+      </section>
+
+      {/* Servicios */}
+      <section id="services" className="py-16 px-6 grid md:grid-cols-3 gap-6">
+        {[
+          "Desarrollo Web",
+          "Aplicaciones Móviles",
+          "Inteligencia Artificial"
+        ].map((service, i) => (
+          <Card key={i} className="bg-gray-800">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-2">{service}</h3>
+              <p className="text-gray-400">
+                Soluciones personalizadas adaptadas a tus necesidades.
+              </p>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+
+      {/* Nosotros */}
+      <section id="about" className="py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-4">Sobre Nexora</h2>
+        <p className="text-gray-400 max-w-2xl mx-auto">
+          Nexora es una empresa enfocada en la innovación tecnológica, creando software inteligente que conecta ideas con resultados reales.
+        </p>
+      </section>
+
+      {/* Contacto */}
+      <section id="contact" className="py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-4">Contáctanos</h2>
+        <p className="text-gray-400 mb-6">¿Listo para comenzar tu proyecto?</p>
+        <Button>Enviar Mensaje</Button>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-6 text-gray-500">
+        © 2026 Nexora. Todos los derechos reservados.
+      </footer>
+    </div>
+  );
+}
